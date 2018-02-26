@@ -158,6 +158,7 @@
             this.ButtonAddTask.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ButtonAddTask.TabIndex = 4;
             this.ButtonAddTask.Text = "添加任务";
+            this.ButtonAddTask.Click += new System.EventHandler(this.ButtonAddTask_Click);
             // 
             // ButtonDelTask
             // 

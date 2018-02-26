@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace Schematization
 {
-    //!主窗体
-    public partial class FormSchematization : Form
+    public partial class FormCreateTask : Form
     {
-        //!构造函数
-        public FormSchematization()
+        public FormCreateTask()
         {
             InitializeComponent();
-        }
-
-        //!创建任务
-        private void ButtonAddTask_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
