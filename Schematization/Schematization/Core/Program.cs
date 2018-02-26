@@ -13,7 +13,7 @@ namespace Schematization
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Schematization());
+            Application.Run(new FormSchematization());
         }
     }
 }

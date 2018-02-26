@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Schematization
 {
-    public partial class Schematization : Form
+    public partial class FormSchematization : Form
     {
-        public Schematization()
+        public FormSchematization()
         {
             InitializeComponent();
         }
