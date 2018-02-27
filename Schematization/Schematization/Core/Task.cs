@@ -47,6 +47,27 @@ namespace Schematization
             vXmlDoc.Save(sFileName);
         }
 
+        //!反序列化
+        public void Deserialize(String sFileName)
+        {
+            if (File.Exists(sFileName))
+            {
+                //!文档
+                XmlDocument vXmlDoc = new XmlDocument();
+                vXmlDoc.Load(sFileName);
+
+                //!根节点
+                XmlNode vRootElem = vXmlDoc.SelectSingleNode("TaskData");
+
+                //!数据节点
+                m_vData.Clear();
+                foreach (XmlNode vNode in vRootElem.SelectNodes("Data"))
+                {
+                    m_vData.Add(vNode.Attributes[0].Name, vNode.Attributes[0].Value);
+                }
+            }
+        }
+
         //!任务状态
         public TaskState State
         {
