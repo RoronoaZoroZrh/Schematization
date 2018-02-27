@@ -33,22 +33,22 @@ namespace Schematization
             XmlElement vTaskElem = vXmlDoc.CreateElement("Task");
             vRootElem.AppendChild(vTaskElem);
 
-            //!任务类别属性
+            //!任务类别
             XmlAttribute vTypeAttr = vXmlDoc.CreateAttribute("Type");
             vTypeAttr.Value = m_sTaskType;
             vTaskElem.Attributes.Append(vTypeAttr);
 
-            //!任务状态属性
+            //!任务状态
             XmlAttribute vStateAttr = vXmlDoc.CreateAttribute("State");
             vStateAttr.Value = m_vTaskState.ToString();
             vTaskElem.Attributes.Append(vStateAttr);
 
-            //!任务名称属性
+            //!任务名称
             XmlAttribute vNameAttr = vXmlDoc.CreateAttribute("Name");
             vNameAttr.Value = m_sTaskName;
             vTaskElem.Attributes.Append(vNameAttr);
 
-            //!任务数据节点
+            //!任务数据
             m_vData.ForEach(vData => vData.Serialize(vRootElem));
 
             //!保存文档
@@ -68,13 +68,26 @@ namespace Schematization
                 vXmlDoc.Load(sFileName);
 
                 //!根节点
-                XmlNode vRootElem = vXmlDoc.SelectSingleNode("TaskData");
+                XmlNode vRootElem = vXmlDoc.SelectSingleNode("TaskRoot");
 
-                //!数据节点
+                //!任务节点
+                XmlNode vTaskElem = vRootElem.SelectSingleNode("Task");
+
+                //!任务类别
+                m_sTaskType = vTaskElem.Attributes["Type"].Value;
+
+                //!任务状态
+                m_vTaskState = vTaskElem.Attributes["State"].Value == "Finish" ? TaskState.Finish : TaskState.UnFinish;
+
+                //!任务名称
+                m_sTaskName = vTaskElem.Attributes["Name"].Value;
+
+                //!任务数据
                 m_vData.Clear();
-                foreach (XmlNode vNode in vRootElem.SelectNodes("Data"))
+                foreach (XmlNode vNodeItr in vTaskElem.SelectNodes("TaskData"))
                 {
-
+                    TaskData vNewTaskData = new TaskData();
+                    vNewTaskData.Deserialize(vNodeItr);
                 }
             }
         }

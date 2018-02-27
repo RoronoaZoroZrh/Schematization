@@ -7,22 +7,30 @@ namespace Schematization
     public class TaskData
     {
         //!序列化
-        public void Serialize(XmlElement vRootElem)
+        public void Serialize(XmlElement vTaskElem)
         {
-            XmlElement vDataElem = vRootElem.OwnerDocument.CreateElement("Data");
-            vRootElem.AppendChild(vDataElem);
+            XmlElement vDataElem = vTaskElem.OwnerDocument.CreateElement("TaskData");
+            vTaskElem.AppendChild(vDataElem);
 
-            XmlAttribute vStateAttr = vRootElem.OwnerDocument.CreateAttribute("State");
+            XmlAttribute vStateAttr = vTaskElem.OwnerDocument.CreateAttribute("State");
             vStateAttr.Value = m_vTaskState.ToString();
             vDataElem.Attributes.Append(vStateAttr);
 
-            XmlAttribute vNameAttr = vRootElem.OwnerDocument.CreateAttribute("Name");
+            XmlAttribute vNameAttr = vTaskElem.OwnerDocument.CreateAttribute("Name");
             vNameAttr.Value = m_sTaskName;
             vDataElem.Attributes.Append(vNameAttr);
 
-            XmlAttribute vDescAttr = vRootElem.OwnerDocument.CreateAttribute("Desc");
+            XmlAttribute vDescAttr = vTaskElem.OwnerDocument.CreateAttribute("Desc");
             vDescAttr.Value = m_sTaskDesc;
             vDataElem.Attributes.Append(vDescAttr);
+        }
+
+        //!反序列化
+        public void Deserialize(XmlNode vDataElem)
+        {
+            m_vTaskState = vDataElem.Attributes["State"].Value == "Finish" ? TaskState.Finish : TaskState.UnFinish;
+            m_sTaskName = vDataElem.Attributes["Name"].Value;
+            m_sTaskDesc = vDataElem.Attributes["Desc"].Value;
         }
 
         //!任务状态
