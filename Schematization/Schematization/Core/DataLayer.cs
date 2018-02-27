@@ -10,6 +10,7 @@ namespace Schematization
         public void CreateTask(String sTaskType, String sTaskName)
         {
             m_vTaskList.Add(new Task { Type = sTaskType, Name = sTaskName });
+            m_vTaskList[m_vTaskList.Count - 1].Serialize();
         }
 
         //!获取任务类别

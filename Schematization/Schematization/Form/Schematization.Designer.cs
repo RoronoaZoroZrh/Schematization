@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.PanelSchematization = new DevComponents.DotNetBar.PanelEx();
-            this.BarMenu = new DevComponents.DotNetBar.Bar();
-            this.ButtonItemMenu = new DevComponents.DotNetBar.ButtonItem();
-            this.FormStyleManager = new DevComponents.DotNetBar.StyleManager();
-            this.ComboBoxType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.ComboBoxTask = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.ButtonFinishTask = new DevComponents.DotNetBar.ButtonX();
+            this.ButtonDelTask = new DevComponents.DotNetBar.ButtonX();
+            this.ButtonAddTask = new DevComponents.DotNetBar.ButtonX();
             this.AdvTreeTask = new DevComponents.AdvTree.AdvTree();
             this.nodeConnector1 = new DevComponents.AdvTree.NodeConnector();
             this.elementStyle1 = new DevComponents.DotNetBar.ElementStyle();
-            this.ButtonAddTask = new DevComponents.DotNetBar.ButtonX();
-            this.ButtonDelTask = new DevComponents.DotNetBar.ButtonX();
-            this.ButtonFinishTask = new DevComponents.DotNetBar.ButtonX();
+            this.ComboBoxTask = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.ComboBoxType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.BarMenu = new DevComponents.DotNetBar.Bar();
+            this.ButtonItemMenu = new DevComponents.DotNetBar.ButtonItem();
+            this.FormStyleManager = new DevComponents.DotNetBar.StyleManager();
             this.PanelSchematization.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BarMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdvTreeTask)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelSchematization
@@ -58,8 +58,9 @@
             this.PanelSchematization.Controls.Add(this.BarMenu);
             this.PanelSchematization.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelSchematization.Location = new System.Drawing.Point(0, 0);
+            this.PanelSchematization.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PanelSchematization.Name = "PanelSchematization";
-            this.PanelSchematization.Size = new System.Drawing.Size(580, 536);
+            this.PanelSchematization.Size = new System.Drawing.Size(677, 636);
             this.PanelSchematization.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.PanelSchematization.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.PanelSchematization.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -67,6 +68,98 @@
             this.PanelSchematization.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.PanelSchematization.Style.GradientAngle = 90;
             this.PanelSchematization.TabIndex = 0;
+            // 
+            // ButtonFinishTask
+            // 
+            this.ButtonFinishTask.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.ButtonFinishTask.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.ButtonFinishTask.Location = new System.Drawing.Point(546, 561);
+            this.ButtonFinishTask.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonFinishTask.Name = "ButtonFinishTask";
+            this.ButtonFinishTask.Size = new System.Drawing.Size(117, 58);
+            this.ButtonFinishTask.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ButtonFinishTask.TabIndex = 6;
+            this.ButtonFinishTask.Text = "完成任务";
+            // 
+            // ButtonDelTask
+            // 
+            this.ButtonDelTask.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.ButtonDelTask.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.ButtonDelTask.Location = new System.Drawing.Point(280, 561);
+            this.ButtonDelTask.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonDelTask.Name = "ButtonDelTask";
+            this.ButtonDelTask.Size = new System.Drawing.Size(117, 58);
+            this.ButtonDelTask.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ButtonDelTask.TabIndex = 5;
+            this.ButtonDelTask.Text = "删除任务";
+            // 
+            // ButtonAddTask
+            // 
+            this.ButtonAddTask.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.ButtonAddTask.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.ButtonAddTask.Location = new System.Drawing.Point(14, 561);
+            this.ButtonAddTask.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonAddTask.Name = "ButtonAddTask";
+            this.ButtonAddTask.Size = new System.Drawing.Size(117, 58);
+            this.ButtonAddTask.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ButtonAddTask.TabIndex = 4;
+            this.ButtonAddTask.Text = "添加任务";
+            this.ButtonAddTask.Click += new System.EventHandler(this.ButtonAddTask_Click);
+            // 
+            // AdvTreeTask
+            // 
+            this.AdvTreeTask.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.AdvTreeTask.AllowDrop = true;
+            this.AdvTreeTask.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.AdvTreeTask.BackgroundStyle.Class = "TreeBorderKey";
+            this.AdvTreeTask.Location = new System.Drawing.Point(14, 85);
+            this.AdvTreeTask.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AdvTreeTask.Name = "AdvTreeTask";
+            this.AdvTreeTask.NodesConnector = this.nodeConnector1;
+            this.AdvTreeTask.NodeStyle = this.elementStyle1;
+            this.AdvTreeTask.PathSeparator = ";";
+            this.AdvTreeTask.Size = new System.Drawing.Size(649, 454);
+            this.AdvTreeTask.Styles.Add(this.elementStyle1);
+            this.AdvTreeTask.TabIndex = 3;
+            // 
+            // nodeConnector1
+            // 
+            this.nodeConnector1.LineColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle1
+            // 
+            this.elementStyle1.Class = "";
+            this.elementStyle1.Name = "elementStyle1";
+            this.elementStyle1.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // ComboBoxTask
+            // 
+            this.ComboBoxTask.DisplayMember = "Text";
+            this.ComboBoxTask.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboBoxTask.FormattingEnabled = true;
+            this.ComboBoxTask.ItemHeight = 17;
+            this.ComboBoxTask.Location = new System.Drawing.Point(162, 47);
+            this.ComboBoxTask.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ComboBoxTask.Name = "ComboBoxTask";
+            this.ComboBoxTask.Size = new System.Drawing.Size(500, 23);
+            this.ComboBoxTask.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ComboBoxTask.TabIndex = 2;
+            // 
+            // ComboBoxType
+            // 
+            this.ComboBoxType.DisplayMember = "Text";
+            this.ComboBoxType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboBoxType.FormattingEnabled = true;
+            this.ComboBoxType.ItemHeight = 17;
+            this.ComboBoxType.Location = new System.Drawing.Point(14, 47);
+            this.ComboBoxType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ComboBoxType.Name = "ComboBoxType";
+            this.ComboBoxType.Size = new System.Drawing.Size(140, 23);
+            this.ComboBoxType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ComboBoxType.TabIndex = 1;
             // 
             // BarMenu
             // 
@@ -79,8 +172,9 @@
             this.BarMenu.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.ButtonItemMenu});
             this.BarMenu.Location = new System.Drawing.Point(0, 0);
+            this.BarMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BarMenu.Name = "BarMenu";
-            this.BarMenu.Size = new System.Drawing.Size(580, 27);
+            this.BarMenu.Size = new System.Drawing.Size(677, 27);
             this.BarMenu.Stretch = true;
             this.BarMenu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BarMenu.TabIndex = 0;
@@ -96,103 +190,19 @@
             this.FormStyleManager.ManagerColorTint = System.Drawing.Color.DimGray;
             this.FormStyleManager.ManagerStyle = DevComponents.DotNetBar.eStyle.Windows7Blue;
             // 
-            // ComboBoxType
-            // 
-            this.ComboBoxType.DisplayMember = "Text";
-            this.ComboBoxType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ComboBoxType.FormattingEnabled = true;
-            this.ComboBoxType.ItemHeight = 15;
-            this.ComboBoxType.Location = new System.Drawing.Point(12, 33);
-            this.ComboBoxType.Name = "ComboBoxType";
-            this.ComboBoxType.Size = new System.Drawing.Size(121, 21);
-            this.ComboBoxType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ComboBoxType.TabIndex = 1;
-            // 
-            // ComboBoxTask
-            // 
-            this.ComboBoxTask.DisplayMember = "Text";
-            this.ComboBoxTask.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ComboBoxTask.FormattingEnabled = true;
-            this.ComboBoxTask.ItemHeight = 15;
-            this.ComboBoxTask.Location = new System.Drawing.Point(139, 33);
-            this.ComboBoxTask.Name = "ComboBoxTask";
-            this.ComboBoxTask.Size = new System.Drawing.Size(429, 21);
-            this.ComboBoxTask.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ComboBoxTask.TabIndex = 2;
-            // 
-            // AdvTreeTask
-            // 
-            this.AdvTreeTask.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
-            this.AdvTreeTask.AllowDrop = true;
-            this.AdvTreeTask.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.AdvTreeTask.BackgroundStyle.Class = "TreeBorderKey";
-            this.AdvTreeTask.Location = new System.Drawing.Point(12, 60);
-            this.AdvTreeTask.Name = "AdvTreeTask";
-            this.AdvTreeTask.NodesConnector = this.nodeConnector1;
-            this.AdvTreeTask.NodeStyle = this.elementStyle1;
-            this.AdvTreeTask.PathSeparator = ";";
-            this.AdvTreeTask.Size = new System.Drawing.Size(556, 403);
-            this.AdvTreeTask.Styles.Add(this.elementStyle1);
-            this.AdvTreeTask.TabIndex = 3;
-            // 
-            // nodeConnector1
-            // 
-            this.nodeConnector1.LineColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle1
-            // 
-            this.elementStyle1.Class = "";
-            this.elementStyle1.Name = "elementStyle1";
-            this.elementStyle1.TextColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // ButtonAddTask
-            // 
-            this.ButtonAddTask.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.ButtonAddTask.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.ButtonAddTask.Location = new System.Drawing.Point(12, 483);
-            this.ButtonAddTask.Name = "ButtonAddTask";
-            this.ButtonAddTask.Size = new System.Drawing.Size(100, 41);
-            this.ButtonAddTask.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ButtonAddTask.TabIndex = 4;
-            this.ButtonAddTask.Text = "添加任务";
-            this.ButtonAddTask.Click += new System.EventHandler(this.ButtonAddTask_Click);
-            // 
-            // ButtonDelTask
-            // 
-            this.ButtonDelTask.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.ButtonDelTask.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.ButtonDelTask.Location = new System.Drawing.Point(240, 483);
-            this.ButtonDelTask.Name = "ButtonDelTask";
-            this.ButtonDelTask.Size = new System.Drawing.Size(100, 41);
-            this.ButtonDelTask.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ButtonDelTask.TabIndex = 5;
-            this.ButtonDelTask.Text = "删除任务";
-            // 
-            // ButtonFinishTask
-            // 
-            this.ButtonFinishTask.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.ButtonFinishTask.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.ButtonFinishTask.Location = new System.Drawing.Point(468, 483);
-            this.ButtonFinishTask.Name = "ButtonFinishTask";
-            this.ButtonFinishTask.Size = new System.Drawing.Size(100, 41);
-            this.ButtonFinishTask.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ButtonFinishTask.TabIndex = 6;
-            this.ButtonFinishTask.Text = "完成任务";
-            // 
             // FormSchematization
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 536);
+            this.ClientSize = new System.Drawing.Size(677, 636);
             this.Controls.Add(this.PanelSchematization);
+            this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormSchematization";
             this.Text = "任务规划";
             this.PanelSchematization.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BarMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdvTreeTask)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BarMenu)).EndInit();
             this.ResumeLayout(false);
 
         }
