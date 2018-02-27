@@ -26,19 +26,30 @@ namespace Schematization
             vXmlDoc.AppendChild(vDec);
 
             //!根节点
-            XmlElement vRootElem = vXmlDoc.CreateElement("TaskData");
+            XmlElement vRootElem = vXmlDoc.CreateElement("TaskRoot");
             vXmlDoc.AppendChild(vRootElem);
 
-            //!数据节点
-            foreach (KeyValuePair<String, String> vPair in m_vData)
-            {
-                XmlElement vDataElem = vXmlDoc.CreateElement("Data");
-                vRootElem.AppendChild(vDataElem);
+            //!任务节点
+            XmlElement vTaskElem = vXmlDoc.CreateElement("Task");
+            vRootElem.AppendChild(vTaskElem);
 
-                XmlAttribute vDataAttr = vXmlDoc.CreateAttribute(vPair.Key);
-                vDataAttr.Value = vPair.Value;
-                vDataElem.Attributes.Append(vDataAttr);
-            }
+            //!任务类别属性
+            XmlAttribute vTypeAttr = vXmlDoc.CreateAttribute("Type");
+            vTypeAttr.Value = m_sTaskType;
+            vTaskElem.Attributes.Append(vTypeAttr);
+
+            //!任务状态属性
+            XmlAttribute vStateAttr = vXmlDoc.CreateAttribute("State");
+            vStateAttr.Value = m_vTaskState.ToString();
+            vTaskElem.Attributes.Append(vStateAttr);
+
+            //!任务名称属性
+            XmlAttribute vNameAttr = vXmlDoc.CreateAttribute("Name");
+            vNameAttr.Value = m_sTaskName;
+            vTaskElem.Attributes.Append(vNameAttr);
+
+            //!任务数据节点
+            m_vData.ForEach(vData => vData.Serialize(vRootElem));
 
             //!保存文档
             String sFileName = "../../Data/" + m_sTaskName + ".xml";
@@ -63,24 +74,10 @@ namespace Schematization
                 m_vData.Clear();
                 foreach (XmlNode vNode in vRootElem.SelectNodes("Data"))
                 {
-                    m_vData.Add(vNode.Attributes[0].Name, vNode.Attributes[0].Value);
+
                 }
             }
         }
-
-        //!任务状态
-        public TaskState State
-        {
-            get
-            {
-                return m_vTaskState;
-            }
-            set
-            {
-                m_vTaskState = value;
-            }
-        }
-        private TaskState m_vTaskState = TaskState.UnFinish;
 
         //!任务类别
         public String Type
@@ -95,6 +92,20 @@ namespace Schematization
             }
         }
         private String m_sTaskType = "";
+
+        //!任务状态
+        public TaskState State
+        {
+            get
+            {
+                return m_vTaskState;
+            }
+            set
+            {
+                m_vTaskState = value;
+            }
+        }
+        private TaskState m_vTaskState = TaskState.UnFinish;
 
         //!任务名称
         public String Name
@@ -111,6 +122,6 @@ namespace Schematization
         private String m_sTaskName = "";
 
         //!任务数据
-        private Dictionary<String, String> m_vData = new Dictionary<String, String>();
+        private List<TaskData> m_vData = new List<TaskData>();
     }
 }
