@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\DataLayer.cs" />
+    <Compile Include="Core\TaskData.cs" />
     <Compile Include="Form\CreateTask.cs">
       <SubType>Form</SubType>
     </Compile>
