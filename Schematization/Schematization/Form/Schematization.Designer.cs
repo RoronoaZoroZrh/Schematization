@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PanelSchematization = new DevComponents.DotNetBar.PanelEx();
             this.ButtonFinishTask = new DevComponents.DotNetBar.ButtonX();
             this.ButtonDelTask = new DevComponents.DotNetBar.ButtonX();
             this.ButtonAddTask = new DevComponents.DotNetBar.ButtonX();
             this.AdvTreeTask = new DevComponents.AdvTree.AdvTree();
-            this.nodeConnector1 = new DevComponents.AdvTree.NodeConnector();
-            this.elementStyle1 = new DevComponents.DotNetBar.ElementStyle();
+            this.ContextMenuStripTaskData = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.添加任务数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ComboBoxTask = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.ComboBoxType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.BarMenu = new DevComponents.DotNetBar.Bar();
@@ -42,6 +43,7 @@
             this.FormStyleManager = new DevComponents.DotNetBar.StyleManager();
             this.PanelSchematization.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdvTreeTask)).BeginInit();
+            this.ContextMenuStripTaskData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BarMenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,25 +117,27 @@
             // 
             // 
             this.AdvTreeTask.BackgroundStyle.Class = "TreeBorderKey";
+            this.AdvTreeTask.ContextMenuStrip = this.ContextMenuStripTaskData;
             this.AdvTreeTask.Location = new System.Drawing.Point(14, 85);
             this.AdvTreeTask.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AdvTreeTask.Name = "AdvTreeTask";
-            this.AdvTreeTask.NodesConnector = this.nodeConnector1;
-            this.AdvTreeTask.NodeStyle = this.elementStyle1;
             this.AdvTreeTask.PathSeparator = ";";
             this.AdvTreeTask.Size = new System.Drawing.Size(649, 454);
-            this.AdvTreeTask.Styles.Add(this.elementStyle1);
             this.AdvTreeTask.TabIndex = 3;
             // 
-            // nodeConnector1
+            // ContextMenuStripTaskData
             // 
-            this.nodeConnector1.LineColor = System.Drawing.SystemColors.ControlText;
+            this.ContextMenuStripTaskData.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.添加任务数据ToolStripMenuItem});
+            this.ContextMenuStripTaskData.Name = "ContextMenuStripTaskData";
+            this.ContextMenuStripTaskData.Size = new System.Drawing.Size(153, 48);
             // 
-            // elementStyle1
+            // 添加任务数据ToolStripMenuItem
             // 
-            this.elementStyle1.Class = "";
-            this.elementStyle1.Name = "elementStyle1";
-            this.elementStyle1.TextColor = System.Drawing.SystemColors.ControlText;
+            this.添加任务数据ToolStripMenuItem.Name = "添加任务数据ToolStripMenuItem";
+            this.添加任务数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.添加任务数据ToolStripMenuItem.Text = "添加任务数据";
+            this.添加任务数据ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemAddTaskData_Click);
             // 
             // ComboBoxTask
             // 
@@ -202,6 +206,7 @@
             this.Text = "任务规划";
             this.PanelSchematization.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AdvTreeTask)).EndInit();
+            this.ContextMenuStripTaskData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BarMenu)).EndInit();
             this.ResumeLayout(false);
 
@@ -216,11 +221,11 @@
         private DevComponents.DotNetBar.Controls.ComboBoxEx ComboBoxType;
         private DevComponents.DotNetBar.Controls.ComboBoxEx ComboBoxTask;
         private DevComponents.AdvTree.AdvTree AdvTreeTask;
-        private DevComponents.AdvTree.NodeConnector nodeConnector1;
-        private DevComponents.DotNetBar.ElementStyle elementStyle1;
         private DevComponents.DotNetBar.ButtonX ButtonAddTask;
         private DevComponents.DotNetBar.ButtonX ButtonFinishTask;
         private DevComponents.DotNetBar.ButtonX ButtonDelTask;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuStripTaskData;
+        private System.Windows.Forms.ToolStripMenuItem 添加任务数据ToolStripMenuItem;
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevComponents.AdvTree;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -22,6 +23,12 @@ namespace Schematization
             {
                 m_vData.CreateTask(vForm.TaskType, vForm.TaskName);
             }
+        }
+
+        //!添加任务数据
+        private void ToolStripMenuItemAddTaskData_Click(object sender, EventArgs e)
+        {
+
         }
 
         //!数据
